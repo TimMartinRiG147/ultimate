@@ -8,7 +8,7 @@ ENV MONGO_URI mongodb://localhost:27017/
 WORKDIR /usr/src/app
 
 # Copy the current directory contents into the container at /usr/src/app
-COPY ./app .
+COPY . .
 
 # Install any needed packages specified in requirements.txt
 # Ensure requirements.txt includes pymongo and python-json-logger
