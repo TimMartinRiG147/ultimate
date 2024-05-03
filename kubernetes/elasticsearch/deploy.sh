@@ -35,6 +35,6 @@ kubectl apply -f ./kubernetes/elasticsearch/filebeat-configmap.yaml --namespace 
 
 # Apply ingress
 echo "Applying ingress configuration..."
-kubectl apply -f ./ingress.yaml --namespace $NAMESPACE
+kubectl apply -f ./kubernetes/elasticsearch/ingress.yaml --namespace $NAMESPACE
 
 echo "Installation completed."

@@ -29,6 +29,10 @@ helm install prometheus prometheus-community/prometheus --namespace $NAMESPACE
 echo "Installing Grafana..."
 helm install grafana grafana/grafana --namespace $NAMESPACE --set adminPassword='admin'
 
+# Apply ingress
+echo "Applying ingress configuration..."
+kubectl apply -f ./kubernetes/prometheus/ingress.yaml --namespace $NAMESPACE
+
 # Output the Grafana admin password
 echo "Grafana admin password:"
 kubectl get secret --namespace $NAMESPACE grafana -o jsonpath="{.data.admin-password}" | base64 --decode; echo
