@@ -32,7 +32,7 @@ kind: ConfigMap
 metadata:
   annotations:
     meta.helm.sh/release-name: filebeat
-    meta.helm.sh/release-namespace: default
+    meta.helm.sh/release-namespace: monitoring
   labels:
     app: filebeat-filebeat
     app.kubernetes.io/managed-by: Helm
@@ -40,4 +40,4 @@ metadata:
     heritage: Helm
     release: filebeat
   name: filebeat-filebeat-daemonset-config
-  namespace: default
+  namespace: monitoring
