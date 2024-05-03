@@ -27,7 +27,11 @@ helm install kibana elastic/kibana --set service.type=NodePort --namespace $NAME
 
 # Install Filebeat
 echo "Installing Filebeat..."
-helm install filebeat elastic/filebeat --namespace $NAMESPACE
+helm install filebeat elastic/filebeat --values ./kubernetes/elasticsearch/filebeat-configmap.yaml --namespace $NAMESPACE
+
+# Apply Filebeat ConfigMap
+echo "Applying Filebeat ConfigMap..."
+kubectl apply -f ./kubernetes/elasticsearch/filebeat-configmap.yaml --namespace $NAMESPACE
 
 # Apply ingress
 echo "Applying ingress configuration..."
